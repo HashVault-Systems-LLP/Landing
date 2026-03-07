@@ -147,7 +147,7 @@ export function ContactSection() {
                   htmlFor="email"
                   className="mb-2 block text-[0.72rem] uppercase tracking-[0.18em] text-muted-foreground"
                 >
-                  Work email
+                  Email
                 </label>
                 <Input
                   id="email"

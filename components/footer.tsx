@@ -5,6 +5,7 @@ const footerLinks = [
   { label: "Workshops", href: "#workshops" },
   { label: "Method", href: "#methodology" },
   { label: "Contact", href: "#contact" },
+  { label: "Privacy", href: "/privacy" },
 ];
 
 export function Footer() {
@@ -30,7 +31,7 @@ export function Footer() {
         <DitherText
           text="HASHVAULT"
           fitWidth
-          pixelScale={0.18}
+          pixelScale={0.3}
           fontScale={0.55}
           colorRgb={[160, 100, 240]}
           density={0.58}
@@ -45,6 +46,9 @@ export function Footer() {
           <p className="mt-3 max-w-md text-xs leading-6 text-muted-foreground">
             Practitioner-led cybersecurity training for engineering colleges and corporate teams.
             Based in Bangalore, Karnataka, India.
+          </p>
+          <p className="mt-3 text-[0.66rem] text-muted-foreground/50">
+            &copy; {new Date().getFullYear()} HashVault Systems LLP. All rights reserved.
           </p>
         </div>
 

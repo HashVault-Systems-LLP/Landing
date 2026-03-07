@@ -5,13 +5,13 @@ const methods = [
     number: "01",
     title: "70% hands-on, 30% theory",
     description:
-      "Every HashVault session runs the majority of time in live lab environments. Students remember what they do, not what they hear — so we build accordingly.",
+      "Every HashVault session runs the majority of time in live lab environments. Most individuals remember what they do, not what they hear — so we build accordingly.",
   },
   {
     number: "02",
     title: "Scenario-led delivery",
     description:
-      "Labs are built around real attacker workflows: recon, exploitation, lateral movement, and incident response — mapped to current tooling, not legacy coursework.",
+      "Labs are built around real attacker workflows: recon, enumeration, exploitation, lateral movement and covering tracks — mapped to current tooling, not legacy coursework.",
   },
   {
     number: "03",

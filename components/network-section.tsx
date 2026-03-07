@@ -19,7 +19,7 @@ export function NetworkSection() {
           <p className="section-kicker">Beyond a single workshop</p>
           <h2 className="mt-5 w-full text-3xl leading-[1.15] tracking-tight text-card-foreground sm:text-4xl lg:text-[2.6rem]">
             The real goal is a repeatable security talent pipeline{" "}
-            <span className="text-muted-foreground">that Bangalore's best colleges can trust.</span>
+            <span className="text-muted-foreground">that institutions can build on.</span>
           </h2>
           <div className="mt-8 h-px w-12 bg-primary" />
 

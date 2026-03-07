@@ -334,6 +334,38 @@
   transform: translateY(0);
 }
 
+/* ── Sonar / coming-soon pulse ──────────────────────────────────────────── */
+
+@keyframes sonar-ring {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+.sonar-btn {
+  position: relative;
+  display: inline-flex;
+}
+
+.sonar-btn::before,
+.sonar-btn::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border: 1px solid color-mix(in oklch, var(--primary) 70%, transparent);
+  animation: sonar-ring 2s cubic-bezier(0.2, 0, 0.8, 1) infinite;
+  pointer-events: none;
+}
+
+.sonar-btn::after {
+  animation-delay: 0.8s;
+}
+
 /* ── Reduced-motion override ────────────────────────────────────────────── */
 
 @media (prefers-reduced-motion: reduce) {
@@ -354,6 +386,12 @@
   .pulse-bar {
     animation: none;
     opacity: 1;
+  }
+
+  .sonar-btn::before,
+  .sonar-btn::after {
+    animation: none;
+    opacity: 0;
   }
 
   /* Keep grid squares at their max opacity instead of animating */

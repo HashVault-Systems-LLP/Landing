@@ -23,7 +23,7 @@ export function PhilosophySection() {
       >
         <DitherText
           text="01"
-          pixelScale={0.1}
+          pixelScale={0.4}
           fontScale={0.82}
           colorRgb={[160, 100, 240]}
           density={0.62}
@@ -42,21 +42,22 @@ export function PhilosophySection() {
 
       <div className="relative mx-auto max-w-5xl px-6 lg:px-8">
         <p className="section-kicker">Operating principle</p>
+        {/* Gradient underline accent */}
+        <div className="mt-3 h-px max-w-xs philosophy-gradient-line" />
 
         <blockquote className="mt-8 text-3xl leading-[1.12] tracking-tight text-foreground sm:text-4xl lg:text-5xl">
-          Build practitioners who can{" "}
-          <span style={{ color: "var(--primary)" }}>recognize pressure,</span>{" "}
-          respond with discipline, and explain every tradeoff.
+          Build practitioners who are{" "}
+          <span style={{ color: "var(--primary)" }}>practically ready,</span>{" "}
+          have industry level exposure & work with the current tools and techniques.
         </blockquote>
 
-        {/* Gradient underline accent */}
-        <div className="mt-10 h-px max-w-xs philosophy-gradient-line" />
+        
 
-        <p className="mt-6 max-w-lg text-sm leading-[1.85] text-muted-foreground">
+        {/* <p className="mt-6 max-w-lg text-sm leading-[1.85] text-muted-foreground">
           Not certificate collectors. Not passive attendees. The kind of person a
           security team actually wants next to them during an incident — one who has
           been under pressure before and knows how to move.
-        </p>
+        </p> */}
       </div>
     </section>
   );

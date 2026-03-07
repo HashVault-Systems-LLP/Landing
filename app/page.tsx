@@ -1,12 +1,13 @@
 import { Navbar } from "@/components/navbar";
 import { HeroSection } from "@/components/hero-section";
 import { ThreatSection } from "@/components/threat-section";
-import { MethodologySection } from "@/components/methodology-section";
 import { PhilosophySection } from "@/components/philosophy-section";
+import { MethodologySection } from "@/components/methodology-section";
 import { PractitionersSection } from "@/components/practitioners-section";
 import { WorkshopsSection } from "@/components/workshops-section";
 import { StepsSection } from "@/components/steps-section";
-import { TrustedSection } from "@/components/trusted-section";
+import { FaqSection } from "@/components/faq-section";
+import { TestimonialsSection } from "@/components/testimonials-section";
 import { NetworkSection } from "@/components/network-section";
 import { ContactSection } from "@/components/contact-section";
 import { Footer } from "@/components/footer";
@@ -18,12 +19,13 @@ export default function Page() {
       <main>
         <HeroSection />
         <ThreatSection />
-        <MethodologySection />
         <PhilosophySection />
+        <MethodologySection />
         <PractitionersSection />
         <WorkshopsSection />
         <StepsSection />
-        <TrustedSection />
+        <FaqSection />
+        <TestimonialsSection />
         <NetworkSection />
         <ContactSection />
       </main>

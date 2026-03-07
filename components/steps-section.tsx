@@ -3,7 +3,7 @@ import { AnimatedGridPattern } from "@/components/animated-grid-pattern";
 const steps = [
   {
     title: "Discovery call",
-    description: "We learn your student batch, department, skill baseline, dates, and what you want them to walk away able to do.",
+    description: "We understand your requirement, department, skill baseline, dates, and what outcomes do you expect from the workshop.",
   },
   {
     title: "Scoped proposal",
@@ -11,7 +11,7 @@ const steps = [
   },
   {
     title: "Workshop delivery",
-    description: "We arrive 45 minutes early. 70% hands-on labs, 30% guided instruction. Feedback form collected at close.",
+    description: "We arrive prepared. 70% hands-on labs, 30% guided instruction. Feedback form collected at close.",
   },
   {
     title: "Follow-through",

@@ -4,13 +4,13 @@ import { AnimatedGridPattern } from "@/components/animated-grid-pattern";
 
 const stats = [
   { value: "70/30", label: "Hands-on ratio" },
-  { value: "4", label: "Workshop tracks" },
-  { value: "50–100", label: "Batch size" },
+  { value: "5", label: "Workshop tracks" },
+  { value: "50–100+", label: "Batch size" },
   { value: "1–3 days", label: "Formats available" },
 ];
 
 const evidenceRows = [
-  "Hands-on labs mapped to real attacker workflows — not toy challenges",
+  "Hands-on labs mapped to real attacker workflows",
   "Workshop formats colleges can adopt without heavy faculty overhead",
   "Assessment checkpoints with feedback at each stage of delivery",
   "Debriefs that convert lab activity into visible capability growth",
@@ -42,11 +42,11 @@ export function HeroSection() {
           </p>
 
           <h1 className="display-title reveal-up reveal-up-delay-1 mt-5 max-w-4xl text-4xl text-foreground sm:text-5xl lg:text-6xl xl:text-7xl">
-            Security training that holds up in the lab.
+            For colleges and technical teams — security training that holds up in the real world.
           </h1>
 
           <p className="reveal-up reveal-up-delay-2 mt-8 max-w-3xl text-[1.02rem] leading-8 text-muted-foreground sm:text-[1.08rem]">
-            HashVault Systems delivers hands-on cybersecurity workshops for engineering
+            HashVault Systems delivers hands-on cybersecurity workshops for
             colleges and corporate teams — built around real attacker scenarios, structured
             assessments, and delivery models that institutions can adopt without diluting the
             work into theory.
@@ -109,8 +109,7 @@ export function HeroSection() {
                   <div className="flex items-center gap-3">
                     <ShieldCheck size={18} className="text-primary" />
                     <div>
-                      <p className="text-sm text-foreground">Program validation in motion</p>
-                      <p className="mt-1 text-sm text-muted-foreground">Evidence and scenario review</p>
+                      <p className="text-sm text-foreground"><strong>What our workshops bring to you</strong></p>
                     </div>
                   </div>
                   <span

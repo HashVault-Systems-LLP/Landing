@@ -1,9 +1,9 @@
 import { AnimatedGridPattern } from "@/components/animated-grid-pattern";
 
 const gaps = [
-  "Most college cybersecurity curricula in India are lecture-heavy — students graduate knowing the theory but have never touched a real attacker tool or lab environment.",
-  "Static coursework drifts away from current tooling, cloud misconfigurations, and the attacker tradecraft that actual security teams face on the job.",
-  "There is no shortage of certificates. There is a shortage of graduates who can operate under pressure, make fast triage decisions, and explain their reasoning to a team.",
+  "Cybersecurity training in both colleges and corporate programs is still largely theory-driven. Many learners complete courses without ever using real attacker tools or working in practical lab environments.",
+  "Training content often lags behind real-world threats. Static curricula struggle to keep up with evolving attack surfaces like cloud misconfigurations, API abuse, and modern attacker techniques.",
+  "The industry has plenty of certificates, but not enough operational talent. Security teams need people who can triage alerts, think like attackers, and explain their reasoning under pressure.",
 ];
 
 export function ThreatSection() {
@@ -21,7 +21,7 @@ export function ThreatSection() {
         <div className="max-w-xl lg:pt-2">
           <p className="section-kicker">Why HashVault exists</p>
           <h2 className="mt-5 max-w-xl text-3xl leading-tight text-foreground sm:text-4xl">
-            Most security education still optimizes for completion, not operational readiness.
+            Most security training still optimizes for completion, not operational readiness.
           </h2>
         </div>
 

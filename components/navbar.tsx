@@ -18,7 +18,7 @@ export function Navbar() {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
         <a href="#" className="flex items-center gap-3 text-sm uppercase tracking-[0.22em] text-foreground">
           <span className="inline-flex h-2.5 w-2.5 bg-primary" />
-          <span className="display-title text-lg normal-case tracking-[-0.04em]">HashVault</span>
+          <span className="display-title text-lg normal-case tracking-[-0.04em]">HashVault Systems</span>
         </a>
 
         <div className="hidden items-center gap-2 md:flex">
