@@ -69,8 +69,8 @@
   --card-foreground: oklch(0.9851 0 0);
   --popover: oklch(0.2652 0.0085 317.7107);
   --popover-foreground: oklch(0.9851 0 0);
-  --primary: oklch(0.9148 0.056 311.0546);
-  --primary-foreground: oklch(0.1535 0.0071 314.6024);
+  --primary: oklch(0.76 0.21 311.0546);
+  --primary-foreground: oklch(0.97 0.005 311.0);
   --secondary: oklch(0.8491 0.0483 311.6867);
   --secondary-foreground: oklch(0.1535 0.0071 314.6024);
   --muted: oklch(0.24 0.0087 317.7038);
@@ -172,9 +172,10 @@
     @apply bg-background text-foreground;
     font-family: var(--font-sans), monospace;
     background-image:
-      linear-gradient(180deg, color-mix(in oklch, var(--background) 86%, var(--color-hash-purple) 14%) 0%, var(--background) 22%),
-      linear-gradient(90deg, transparent 0, transparent calc(100% - 1px), color-mix(in oklch, var(--border) 65%, transparent) calc(100% - 1px));
-    background-size: 100% 100%, 24px 24px;
+      radial-gradient(ellipse 110% 55% at 50% -8%, color-mix(in oklch, var(--primary) 18%, transparent) 0%, transparent 100%),
+      radial-gradient(circle, color-mix(in oklch, var(--border) 85%, transparent) 1px, transparent 1px);
+    background-size: 100% 100%, 30px 30px;
+    background-position: 0 0, 15px 15px;
   }
 
   ::selection {
@@ -226,8 +227,14 @@
   position: absolute;
   inset: 0 auto 0 1.5rem;
   width: 1px;
-  background: linear-gradient(180deg, transparent 0, var(--border) 12%, var(--border) 88%, transparent 100%);
-  opacity: 0.7;
+  background: linear-gradient(
+    180deg,
+    transparent 0,
+    color-mix(in oklch, var(--primary) 50%, var(--border) 50%) 12%,
+    color-mix(in oklch, var(--primary) 50%, var(--border) 50%) 88%,
+    transparent 100%
+  );
+  opacity: 0.6;
 }
 
 .section-kicker {
@@ -270,6 +277,60 @@
   animation: pulse-bar 2.8s cubic-bezier(0.16, 1, 0.3, 1) infinite;
 }
 
+/* ── Terminal animation utilities ── */
+
+@keyframes terminal-reveal {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 5px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes cursor-blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+@keyframes scan-sweep {
+  0%   { transform: translateY(-2px); opacity: 0; }
+  4%   { opacity: 1; }
+  96%  { opacity: 0.6; }
+  100% { transform: translateY(100%); opacity: 0; }
+}
+
+.terminal-reveal {
+  opacity: 0;
+  animation: terminal-reveal 0.38s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.cursor-blink {
+  animation: cursor-blink 1.05s step-end infinite;
+}
+
+.scan-sweep {
+  animation: scan-sweep 5s linear infinite;
+  animation-delay: 1.2s;
+}
+
+/* ── Philosophy section accent ── */
+
+.philosophy-gradient-line {
+  background: linear-gradient(90deg, var(--primary), color-mix(in oklch, var(--primary) 30%, transparent), transparent);
+}
+
+/* ── Primary glow for key panels ── */
+
+.glow-panel {
+  box-shadow:
+    0 0 0 1px color-mix(in oklch, var(--primary) 25%, var(--border) 75%),
+    0 0 40px -8px color-mix(in oklch, var(--primary) 30%, transparent),
+    0 4px 24px -4px color-mix(in oklch, var(--background) 60%, transparent);
+}
+
 @media (max-width: 768px) {
   .section-frame::before {
     left: 1rem;
@@ -285,7 +346,11 @@
   .reveal-up-delay-1,
   .reveal-up-delay-2,
   .reveal-up-delay-3,
-  .pulse-bar {
+  .pulse-bar,
+  .terminal-reveal,
+  .cursor-blink,
+  .scan-sweep {
     animation: none;
+    opacity: 1;
   }
 }

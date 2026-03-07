@@ -32,10 +32,10 @@ export function ContactSection() {
         <div>
           <p className="section-kicker">Start a conversation</p>
           <h2 className="mt-5 max-w-md text-3xl leading-tight text-foreground sm:text-4xl">
-            Tell us the cohort, the context, and what your current program is missing.
+            Tell us the batch size, the context, and what your program is missing.
           </h2>
           <p className="mt-6 max-w-md text-sm leading-7 text-muted-foreground">
-            A useful first brief includes learner seniority, session format, timing constraints, and whether you need a single event or a recurring track.
+            A useful brief includes student count, department (CS/IT/ECE), available dates, and whether you need a one-day session or a multi-day bootcamp. We'll come back with a scoped proposal.
           </p>
         </div>
 
@@ -49,7 +49,7 @@ export function ContactSection() {
                 id="name"
                 type="text"
                 name="name"
-                placeholder="Aparna Rao"
+                placeholder="Priya Sharma"
                 required
                 value={formData.name}
                 onChange={handleChange}
@@ -81,7 +81,7 @@ export function ContactSection() {
                 id="institution"
                 type="text"
                 name="institution"
-                placeholder="School of Computing, internal security program, or technical community"
+                placeholder="Dept. of CSE, RV College of Engineering — or your company name"
                 required
                 value={formData.institution}
                 onChange={handleChange}
@@ -97,7 +97,7 @@ export function ContactSection() {
                 id="message"
                 name="message"
                 rows={6}
-                placeholder="Describe the audience, delivery format, and the capability gap you want the program to address."
+                placeholder="E.g. 3rd year CS batch of 80 students, want a 2-day ethical hacking bootcamp in April. Budget is flexible. Students have basic networking knowledge."
                 value={formData.message}
                 onChange={handleChange}
                 className="min-h-36 border-border bg-background/30 px-3 py-3 text-sm text-foreground placeholder:text-muted-foreground/70"
@@ -106,7 +106,7 @@ export function ContactSection() {
 
             <div className="sm:col-span-2 flex flex-col items-start gap-4 border-t border-border pt-5 sm:flex-row sm:items-center sm:justify-between">
               <p className="text-xs leading-6 text-muted-foreground">
-                We usually respond with a scoped recommendation, a suggested format, and next-step logistics.
+                We typically respond within 24 hours with a scoped proposal and suggested dates.
               </p>
               <Button
                 type="submit"

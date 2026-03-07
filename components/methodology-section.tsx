@@ -1,21 +1,21 @@
 const methods = [
   {
     number: "01",
-    title: "Scenario-led workshops",
+    title: "70% hands-on, 30% theory",
     description:
-      "Tightly facilitated labs built around realistic attacker workflows, not toy challenges.",
+      "Every HashVault session runs the majority of time in live lab environments. Students remember what they do, not what they hear — so we build accordingly.",
   },
   {
     number: "02",
-    title: "Curriculum integration",
+    title: "Scenario-led delivery",
     description:
-      "HashVault maps exercises into existing teaching calendars so programs can ship without heavy faculty overhead.",
+      "Labs are built around real attacker workflows: recon, exploitation, lateral movement, and incident response — mapped to current tooling, not legacy coursework.",
   },
   {
     number: "03",
-    title: "Practitioner feedback loops",
+    title: "Practitioner debrief at every stage",
     description:
-      "Learners get direct critique on decision-making, reporting quality, and defensive tradeoffs.",
+      "Each session closes with a structured debrief from the facilitator — converting lab activity into actionable capability signals and concrete next steps for each learner.",
   },
 ];
 

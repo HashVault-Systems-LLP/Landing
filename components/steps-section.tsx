@@ -1,19 +1,19 @@
 const steps = [
   {
-    title: "Initial briefing",
-    description: "We define learner profile, delivery context, and the outcomes you need to prove.",
+    title: "Discovery call",
+    description: "We learn your student batch, department, skill baseline, dates, and what you want them to walk away able to do.",
   },
   {
-    title: "Program design",
-    description: "HashVault maps the workshop sequence, faculty support, and assessment checkpoints.",
+    title: "Scoped proposal",
+    description: "HashVault sends a 1–2 page proposal: workshop track, format, pricing, and what we need from your end to run it well.",
   },
   {
-    title: "Live delivery",
-    description: "Operators facilitate the session with clear pacing, escalation, and debrief control.",
+    title: "Workshop delivery",
+    description: "We arrive 45 minutes early. 70% hands-on labs, 30% guided instruction. Feedback form collected at close.",
   },
   {
-    title: "Evidence and next step",
-    description: "You leave with capability signals, recommendations, and a path for the next cohort.",
+    title: "Follow-through",
+    description: "You receive a resource pack, participant feedback summary, and a recommended path if you want to run a follow-up session.",
   },
 ];
 

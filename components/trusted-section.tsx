@@ -1,8 +1,8 @@
 const trustedNames = [
-  "University programs",
-  "Security clubs",
-  "Faculty labs",
-  "Technical communities",
+  "Engineering colleges",
+  "Cybersecurity clubs",
+  "Training & placement cells",
+  "Corporate security teams",
 ];
 
 export function TrustedSection() {

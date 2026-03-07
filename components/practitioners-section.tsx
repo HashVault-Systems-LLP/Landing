@@ -1,23 +1,23 @@
 const features = [
   {
-    id: "Practice 01",
-    title: "Red team drills",
-    copy: "Attack-path design grounded in current infrastructure realities.",
+    id: "Background 01",
+    title: "CTF competition veterans",
+    copy: "Our facilitators have competed in and won capture-the-flag competitions — the same challenge formats that form the backbone of our lab exercises.",
   },
   {
-    id: "Practice 02",
-    title: "Blue team response",
-    copy: "Triage, containment, communication, and reporting under time pressure.",
+    id: "Background 02",
+    title: "NULL Bangalore & Bi0s community",
+    copy: "Active members of Bangalore's recognized security communities. These aren't credentials on paper — they are the rooms where real security practitioners meet.",
   },
   {
-    id: "Practice 03",
-    title: "Reverse engineering",
-    copy: "Binary and payload analysis used to sharpen technical judgment.",
+    id: "Background 03",
+    title: "Industry analyst experience",
+    copy: "Hands-on experience as security analysts in professional environments — which means the scenarios we build reflect how incidents actually unfold, not how textbooks describe them.",
   },
   {
-    id: "Practice 04",
-    title: "Incident review",
-    copy: "Debriefs that convert raw activity into observable capability growth.",
+    id: "Background 04",
+    title: "College club leadership",
+    copy: "Founded and led college cybersecurity clubs — we understand how students learn, what engages a room, and how to run a session that doesn't lose the back row.",
   },
 ];
 
@@ -36,9 +36,10 @@ export function PractitionersSection() {
             </h2>
             <div className="mt-8 h-px w-12 bg-primary" />
             <p className="mt-6 text-sm leading-[1.85] text-muted-foreground">
-              Every module is authored and stress-tested by operators who have
-              run these scenarios in live environments — not adapted from
-              certification frameworks.
+              HashVault is built by practitioners who have run CTF competitions,
+              worked as security analysts in industry, and led technical
+              communities in Bangalore — not adapted from certification
+              frameworks or generic training decks.
             </p>
           </div>
 
