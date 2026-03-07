@@ -1,3 +1,5 @@
+import { AnimatedGridPattern } from "@/components/animated-grid-pattern";
+
 const methods = [
   {
     number: "01",
@@ -21,8 +23,16 @@ const methods = [
 
 export function MethodologySection() {
   return (
-    <section id="methodology" className="section-frame border-b border-border py-20 lg:py-24">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+    <section id="methodology" className="section-frame relative overflow-hidden border-b border-border py-20 lg:py-24">
+      <AnimatedGridPattern
+        numSquares={25}
+        maxOpacity={0.04}
+        duration={5}
+        width={44}
+        height={44}
+        className="[mask-image:linear-gradient(to_bottom,transparent_0%,black_15%,black_85%,transparent_100%)] opacity-50"
+      />
+      <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mb-12 grid gap-6 lg:grid-cols-[minmax(0,1.2fr)_minmax(280px,0.8fr)] lg:items-start lg:gap-10">
           <div>
             <p className="section-kicker">How delivery works</p>

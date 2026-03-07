@@ -1,4 +1,5 @@
 import { Badge } from "@/components/ui/badge";
+import { AnimatedGridPattern } from "@/components/animated-grid-pattern";
 
 const workshopsData = [
   {
@@ -45,8 +46,16 @@ const workshopsData = [
 
 export function WorkshopsSection() {
   return (
-    <section id="workshops" className="section-frame border-b border-border py-20 lg:py-24">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+    <section id="workshops" className="section-frame relative overflow-hidden border-b border-border py-20 lg:py-24">
+      <AnimatedGridPattern
+        numSquares={20}
+        maxOpacity={0.04}
+        duration={5}
+        width={44}
+        height={44}
+        className="[mask-image:linear-gradient(to_bottom,transparent_0%,black_20%,black_80%,transparent_100%)] opacity-50"
+      />
+      <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mb-10 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
           <div>
             <p className="section-kicker">Workshop catalogue</p>

@@ -1,3 +1,5 @@
+import { AnimatedGridPattern } from "@/components/animated-grid-pattern";
+
 const features = [
   {
     id: "Background 01",
@@ -23,8 +25,16 @@ const features = [
 
 export function PractitionersSection() {
   return (
-    <section className="section-frame border-b border-border py-28 lg:py-36">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+    <section className="section-frame relative overflow-hidden border-b border-border py-28 lg:py-36">
+      <AnimatedGridPattern
+        numSquares={30}
+        maxOpacity={0.04}
+        duration={5}
+        width={44}
+        height={44}
+        className="[mask-image:linear-gradient(to_right,transparent_0%,black_20%,black_80%,transparent_100%)] opacity-40"
+      />
+      <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
         <div className="grid gap-16 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-start lg:gap-24">
 
           {/* ── left ── */}

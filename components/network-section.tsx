@@ -1,10 +1,19 @@
 import { ArrowRight } from "@phosphor-icons/react/dist/ssr";
 import { Button } from "@/components/ui/button";
+import { AnimatedGridPattern } from "@/components/animated-grid-pattern";
 
 export function NetworkSection() {
   return (
-    <section className="section-frame border-b border-border py-24 lg:py-28">
-      <div className="mx-auto max-w-5xl px-6 lg:px-8">
+    <section className="section-frame relative overflow-hidden border-b border-border py-24 lg:py-28">
+      <AnimatedGridPattern
+        numSquares={20}
+        maxOpacity={0.05}
+        duration={5}
+        width={44}
+        height={44}
+        className="[mask-image:radial-gradient(ellipse_at_center,black_35%,transparent_75%)] opacity-55"
+      />
+      <div className="relative mx-auto max-w-5xl px-6 lg:px-8">
         <div className="hash-panel p-8 sm:p-10 lg:p-12">
 
           <p className="section-kicker">Beyond a single workshop</p>

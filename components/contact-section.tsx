@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { AnimatedGridPattern } from "@/components/animated-grid-pattern";
 
 export function ContactSection() {
   const [formData, setFormData] = useState({
@@ -27,8 +28,16 @@ export function ContactSection() {
   };
 
   return (
-    <section id="contact" className="section-frame py-20 lg:py-24">
-      <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-[0.78fr_1.22fr] lg:px-8">
+    <section id="contact" className="section-frame relative overflow-hidden py-20 lg:py-24">
+      <AnimatedGridPattern
+        numSquares={20}
+        maxOpacity={0.04}
+        duration={5}
+        width={44}
+        height={44}
+        className="[mask-image:linear-gradient(to_bottom,transparent_0%,black_15%,black_85%,transparent_100%)] opacity-50"
+      />
+      <div className="relative mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-[0.78fr_1.22fr] lg:px-8">
         <div>
           <p className="section-kicker">Start a conversation</p>
           <h2 className="mt-5 max-w-md text-3xl leading-tight text-foreground sm:text-4xl">

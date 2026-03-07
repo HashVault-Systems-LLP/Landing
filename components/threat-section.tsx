@@ -1,3 +1,5 @@
+import { AnimatedGridPattern } from "@/components/animated-grid-pattern";
+
 const gaps = [
   "Most college cybersecurity curricula in India are lecture-heavy — students graduate knowing the theory but have never touched a real attacker tool or lab environment.",
   "Static coursework drifts away from current tooling, cloud misconfigurations, and the attacker tradecraft that actual security teams face on the job.",
@@ -6,8 +8,16 @@ const gaps = [
 
 export function ThreatSection() {
   return (
-    <section className="section-frame border-b border-border py-20 lg:py-24">
-      <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-start lg:gap-14 lg:px-8">
+    <section className="section-frame relative overflow-hidden border-b border-border py-20 lg:py-24">
+      <AnimatedGridPattern
+        numSquares={22}
+        maxOpacity={0.04}
+        duration={5}
+        width={44}
+        height={44}
+        className="[mask-image:radial-gradient(ellipse_at_center,black_30%,transparent_75%)] opacity-60"
+      />
+      <div className="relative mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-start lg:gap-14 lg:px-8">
         <div className="max-w-xl lg:pt-2">
           <p className="section-kicker">Why HashVault exists</p>
           <h2 className="mt-5 max-w-xl text-3xl leading-tight text-foreground sm:text-4xl">
@@ -34,3 +44,4 @@ export function ThreatSection() {
     </section>
   );
 }
+

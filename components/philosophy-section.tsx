@@ -1,22 +1,32 @@
+import { AnimatedGridPattern } from "@/components/animated-grid-pattern";
+import { DitherText } from "@/components/dither-text";
+
 export function PhilosophySection() {
   return (
     <section className="section-frame relative overflow-hidden border-b border-border py-24 lg:py-36">
 
-      {/* Large decorative background numeral */}
+      {/* Animated grid background */}
+      <AnimatedGridPattern
+        numSquares={20}
+        maxOpacity={0.04}
+        duration={6}
+        width={44}
+        height={44}
+        className="[mask-image:radial-gradient(ellipse_60%_80%_at_30%_50%,black_30%,transparent_80%)] opacity-50"
+      />
+
+      {/* Large decorative background numeral — dithered */}
       <div
-        className="pointer-events-none select-none absolute -right-6 top-1/2 -translate-y-1/2 overflow-hidden"
+        className="pointer-events-none select-none absolute -right-6 top-1/2 -translate-y-1/2 opacity-[0.18]"
+        style={{ width: "clamp(8rem, 22vw, 22rem)", height: "clamp(8rem, 22vw, 22rem)" }}
         aria-hidden="true"
       >
-        <p
-          className="display-title leading-none"
-          style={{
-            fontSize: "clamp(8rem, 22vw, 22rem)",
-            color: "color-mix(in oklch, var(--primary) 8%, transparent)",
-            letterSpacing: "-0.06em",
-          }}
-        >
-          01
-        </p>
+        <DitherText
+          text="01"
+          pixelScale={0.3}
+          fontScale={0.82}
+          colorRgb={[160, 100, 240]}
+        />
       </div>
 
       {/* Ambient glow blob behind the quote */}
