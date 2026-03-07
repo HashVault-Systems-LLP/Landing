@@ -311,9 +311,40 @@
   }
 }
 
+/* ── Scroll-reveal (driven by PageAnimations component) ──────────────────── */
+
+/*
+ * Elements start fully visible (no CSS opacity: 0 here) so that
+ * server-rendered content is immediately readable before hydration.
+ * The PageAnimations component adds the .scroll-reveal class via JS
+ * AFTER mount, applying the hidden state and then observing with
+ * IntersectionObserver. This prevents flash-of-invisible-content on SSR.
+ */
+
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 0.62s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.62s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.scroll-reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Reduced-motion override ────────────────────────────────────────────── */
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+
+  .scroll-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
   }
 
   .reveal-up,

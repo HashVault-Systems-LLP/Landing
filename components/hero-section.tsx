@@ -18,7 +18,7 @@ const evidenceRows = [
 
 export function HeroSection() {
   return (
-    <section className="section-frame relative overflow-hidden border-b border-border pt-18 lg:pt-12">
+    <section className="section-frame relative overflow-hidden border-b border-border pt-18 lg:pt-12" data-hero="true">
 
       {/* ── Animated grid pattern background ── */}
       <AnimatedGridPattern

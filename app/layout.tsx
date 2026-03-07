@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Archivo_Black, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { PageAnimations } from "@/components/page-animations";
 
 const geistMono = Geist_Mono({
   variable: "--font-mono",
@@ -37,6 +38,7 @@ export default function RootLayout({
         className={`${geistMono.variable} ${archivoBlack.variable} min-h-screen antialiased`}
       >
         {children}
+        <PageAnimations />
       </body>
     </html>
   );
