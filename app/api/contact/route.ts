@@ -64,8 +64,8 @@ function notificationEmailHtml(data: ContactPayload): string {
   const field = (label: string, valueHtml: string) => `
     <tr>
       <td style="padding:0 0 20px 0;">
-        <div style="font-family:'Courier New',Courier,monospace;font-size:10px;text-transform:uppercase;letter-spacing:0.22em;color:#5c5175;margin-bottom:6px;">${label}</div>
-        <div style="font-family:'Courier New',Courier,monospace;font-size:13px;line-height:1.65;color:#c8bfe0;">${valueHtml}</div>
+        <div style="font-family:ui-monospace,SFMono-Regular,'SF Mono',Menlo,Monaco,Consolas,'Liberation Mono','Courier New',monospace;font-size:10px;text-transform:uppercase;letter-spacing:0.22em;color:#5c5175;margin-bottom:6px;">${label}</div>
+        <div style="font-family:ui-monospace,SFMono-Regular,'SF Mono',Menlo,Monaco,Consolas,'Liberation Mono','Courier New',monospace;font-size:13px;line-height:1.65;color:#c8bfe0;">${valueHtml}</div>
       </td>
     </tr>`;
 
@@ -94,10 +94,10 @@ function notificationEmailHtml(data: ContactPayload): string {
         <!-- ── Header ── -->
         <tr>
           <td style="padding:32px 40px 24px;border-bottom:1px solid #261c3a;">
-            <div style="font-family:'Courier New',Courier,monospace;font-size:22px;font-weight:700;letter-spacing:-0.04em;color:#ede8f8;line-height:1;">HashVault</div>
-            <div style="font-family:'Courier New',Courier,monospace;font-size:10px;text-transform:uppercase;letter-spacing:0.22em;color:#5c5175;margin-top:5px;">Systems LLP</div>
+            <div style="font-family:ui-monospace,SFMono-Regular,'SF Mono',Menlo,Monaco,Consolas,'Liberation Mono','Courier New',monospace;font-size:22px;font-weight:700;letter-spacing:-0.04em;color:#ede8f8;line-height:1;">HashVault</div>
+            <div style="font-family:ui-monospace,SFMono-Regular,'SF Mono',Menlo,Monaco,Consolas,'Liberation Mono','Courier New',monospace;font-size:10px;text-transform:uppercase;letter-spacing:0.22em;color:#5c5175;margin-top:5px;">Systems LLP</div>
             <!-- Badge -->
-            <div style="display:inline-block;margin-top:12px;border:1px solid #3d2d5c;background-color:#1e1530;font-family:'Courier New',Courier,monospace;font-size:10px;text-transform:uppercase;letter-spacing:0.2em;color:#8b5cf6;padding:4px 10px;">
+            <div style="display:inline-block;margin-top:12px;border:1px solid #3d2d5c;background-color:#1e1530;font-family:ui-monospace,SFMono-Regular,'SF Mono',Menlo,Monaco,Consolas,'Liberation Mono','Courier New',monospace;font-size:10px;text-transform:uppercase;letter-spacing:0.2em;color:#8b5cf6;padding:4px 10px;">
               New Workshop Inquiry
             </div>
           </td>
@@ -117,8 +117,8 @@ function notificationEmailHtml(data: ContactPayload): string {
         <!-- ── Message box ── -->
         <tr>
           <td style="padding:0 40px 28px;">
-            <div style="font-family:'Courier New',Courier,monospace;font-size:10px;text-transform:uppercase;letter-spacing:0.22em;color:#5c5175;margin-bottom:8px;">Message</div>
-            <div style="background-color:#0d0a14;border:1px solid #261c3a;font-family:'Courier New',Courier,monospace;font-size:13px;line-height:1.7;color:#c8bfe0;padding:16px 18px;white-space:pre-wrap;word-break:break-word;">${escHtml(data.message)}</div>
+            <div style="font-family:ui-monospace,SFMono-Regular,'SF Mono',Menlo,Monaco,Consolas,'Liberation Mono','Courier New',monospace;font-size:10px;text-transform:uppercase;letter-spacing:0.22em;color:#5c5175;margin-bottom:8px;">Message</div>
+            <div style="background-color:#0d0a14;border:1px solid #261c3a;font-family:ui-monospace,SFMono-Regular,'SF Mono',Menlo,Monaco,Consolas,'Liberation Mono','Courier New',monospace;font-size:13px;line-height:1.7;color:#c8bfe0;padding:16px 18px;white-space:pre-wrap;word-break:break-word;">${escHtml(data.message)}</div>
           </td>
         </tr>
 
@@ -133,7 +133,7 @@ function notificationEmailHtml(data: ContactPayload): string {
         <tr>
           <td style="padding:24px 40px 32px;">
             <a href="mailto:${escHtml(data.email)}?subject=Re%3A%20Workshop%20inquiry%20%E2%80%94%20${encodeURIComponent(data.institution)}"
-               style="display:inline-block;background-color:#6d3fd6;border:1px solid #8b5cf6;font-family:'Courier New',Courier,monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.2em;color:#ede8f8;padding:11px 22px;text-decoration:none;">
+               style="display:inline-block;background-color:#6d3fd6;border:1px solid #8b5cf6;font-family:ui-monospace,SFMono-Regular,'SF Mono',Menlo,Monaco,Consolas,'Liberation Mono','Courier New',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.2em;color:#ede8f8;padding:11px 22px;text-decoration:none;">
               Reply to ${escHtml(firstName)}
             </a>
           </td>
@@ -142,7 +142,7 @@ function notificationEmailHtml(data: ContactPayload): string {
         <!-- ── Footer ── -->
         <tr>
           <td style="padding:0 40px 28px;border-top:1px solid #1a1229;">
-            <div style="font-family:'Courier New',Courier,monospace;font-size:10px;text-transform:uppercase;letter-spacing:0.18em;color:#3a2f52;padding-top:20px;">
+            <div style="font-family:ui-monospace,SFMono-Regular,'SF Mono',Menlo,Monaco,Consolas,'Liberation Mono','Courier New',monospace;font-size:10px;text-transform:uppercase;letter-spacing:0.18em;color:#3a2f52;padding-top:20px;">
               Received ${receivedAt} IST
             </div>
           </td>
@@ -185,19 +185,19 @@ function thankYouEmailHtml(data: ContactPayload): string {
         <!-- ── Header ── -->
         <tr>
           <td style="padding:32px 40px 24px;border-bottom:1px solid #261c3a;">
-            <div style="font-family:'Courier New',Courier,monospace;font-size:22px;font-weight:700;letter-spacing:-0.04em;color:#ede8f8;line-height:1;">HashVault</div>
-            <div style="font-family:'Courier New',Courier,monospace;font-size:10px;text-transform:uppercase;letter-spacing:0.22em;color:#5c5175;margin-top:5px;">Systems LLP &middot; Bangalore, India</div>
+            <div style="font-family:ui-monospace,SFMono-Regular,'SF Mono',Menlo,Monaco,Consolas,'Liberation Mono','Courier New',monospace;font-size:22px;font-weight:700;letter-spacing:-0.04em;color:#ede8f8;line-height:1;">HashVault</div>
+            <div style="font-family:ui-monospace,SFMono-Regular,'SF Mono',Menlo,Monaco,Consolas,'Liberation Mono','Courier New',monospace;font-size:10px;text-transform:uppercase;letter-spacing:0.22em;color:#5c5175;margin-top:5px;">Systems LLP &middot; Bangalore, India</div>
           </td>
         </tr>
 
         <!-- ── Greeting ── -->
         <tr>
           <td style="padding:36px 40px 0;">
-            <div style="font-family:'Courier New',Courier,monospace;font-size:24px;letter-spacing:-0.03em;color:#ede8f8;line-height:1.25;margin-bottom:18px;">
+            <div style="font-family:ui-monospace,SFMono-Regular,'SF Mono',Menlo,Monaco,Consolas,'Liberation Mono','Courier New',monospace;font-size:24px;letter-spacing:-0.03em;color:#ede8f8;line-height:1.25;margin-bottom:18px;">
               We&apos;ve got your brief,<br/>
               <span style="color:#8b5cf6;">${escHtml(firstName)}.</span>
             </div>
-            <p style="font-family:'Courier New',Courier,monospace;font-size:13px;line-height:1.8;color:#7a6f94;margin:0 0 28px;">
+            <p style="font-family:ui-monospace,SFMono-Regular,'SF Mono',Menlo,Monaco,Consolas,'Liberation Mono','Courier New',monospace;font-size:13px;line-height:1.8;color:#7a6f94;margin:0 0 28px;">
               Thank you for reaching out. We&apos;ve received your inquiry and will get back
               to you within&nbsp;<span style="color:#ede8f8;">24 hours</span>&nbsp;with a scoped
               proposal &mdash; including workshop track, format, and what we&apos;ll need from
@@ -215,10 +215,10 @@ function thankYouEmailHtml(data: ContactPayload): string {
                    style="background-color:#0d0a14;border:1px solid #261c3a;margin-bottom:6px;">
               <tr>
                 <td width="120" style="padding:13px 16px;border-right:1px solid #261c3a;vertical-align:top;">
-                  <span style="font-family:'Courier New',Courier,monospace;font-size:10px;text-transform:uppercase;letter-spacing:0.2em;color:#5c5175;">From</span>
+                  <span style="font-family:ui-monospace,SFMono-Regular,'SF Mono',Menlo,Monaco,Consolas,'Liberation Mono','Courier New',monospace;font-size:10px;text-transform:uppercase;letter-spacing:0.2em;color:#5c5175;">From</span>
                 </td>
                 <td style="padding:13px 16px;vertical-align:top;">
-                  <span style="font-family:'Courier New',Courier,monospace;font-size:13px;color:#c8bfe0;">${escHtml(data.name)}</span>
+                  <span style="font-family:ui-monospace,SFMono-Regular,'SF Mono',Menlo,Monaco,Consolas,'Liberation Mono','Courier New',monospace;font-size:13px;color:#c8bfe0;">${escHtml(data.name)}</span>
                 </td>
               </tr>
             </table>
@@ -228,10 +228,10 @@ function thankYouEmailHtml(data: ContactPayload): string {
                    style="background-color:#0d0a14;border:1px solid #261c3a;">
               <tr>
                 <td width="120" style="padding:13px 16px;border-right:1px solid #261c3a;vertical-align:top;">
-                  <span style="font-family:'Courier New',Courier,monospace;font-size:10px;text-transform:uppercase;letter-spacing:0.2em;color:#5c5175;">Institution</span>
+                  <span style="font-family:ui-monospace,SFMono-Regular,'SF Mono',Menlo,Monaco,Consolas,'Liberation Mono','Courier New',monospace;font-size:10px;text-transform:uppercase;letter-spacing:0.2em;color:#5c5175;">Institution</span>
                 </td>
                 <td style="padding:13px 16px;vertical-align:top;">
-                  <span style="font-family:'Courier New',Courier,monospace;font-size:13px;color:#c8bfe0;">${escHtml(data.institution)}</span>
+                  <span style="font-family:ui-monospace,SFMono-Regular,'SF Mono',Menlo,Monaco,Consolas,'Liberation Mono','Courier New',monospace;font-size:13px;color:#c8bfe0;">${escHtml(data.institution)}</span>
                 </td>
               </tr>
             </table>
@@ -253,7 +253,7 @@ function thankYouEmailHtml(data: ContactPayload): string {
               <tr>
                 <td width="3" style="background-color:#6d3fd6;"></td>
                 <td style="padding:0 0 0 16px;">
-                  <p style="font-family:'Courier New',Courier,monospace;font-size:12px;line-height:1.75;color:#5c5175;margin:0;">
+                  <p style="font-family:ui-monospace,SFMono-Regular,'SF Mono',Menlo,Monaco,Consolas,'Liberation Mono','Courier New',monospace;font-size:12px;line-height:1.75;color:#5c5175;margin:0;">
                     In the meantime, if you have specific dates or batch details to add,
                     you can reply directly to this email &mdash; we&apos;ll pick it up.
                   </p>
@@ -266,7 +266,7 @@ function thankYouEmailHtml(data: ContactPayload): string {
         <!-- ── Footer ── -->
         <tr>
           <td style="padding:0 40px 28px;border-top:1px solid #1a1229;">
-            <div style="font-family:'Courier New',Courier,monospace;font-size:10px;text-transform:uppercase;letter-spacing:0.18em;color:#3a2f52;padding-top:20px;">
+            <div style="font-family:ui-monospace,SFMono-Regular,'SF Mono',Menlo,Monaco,Consolas,'Liberation Mono','Courier New',monospace;font-size:10px;text-transform:uppercase;letter-spacing:0.18em;color:#3a2f52;padding-top:20px;">
               HashVault Systems LLP &middot;
               <a href="mailto:contact@hashvaultsystems.com"
                  style="color:#3a2f52;text-decoration:none;">contact@hashvaultsystems.com</a>
