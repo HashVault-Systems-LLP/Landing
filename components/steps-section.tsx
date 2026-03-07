@@ -1,26 +1,36 @@
+import { AnimatedGridPattern } from "@/components/animated-grid-pattern";
+
 const steps = [
   {
-    title: "Initial briefing",
-    description: "We define learner profile, delivery context, and the outcomes you need to prove.",
+    title: "Discovery call",
+    description: "We understand your requirement, department, skill baseline, dates, and what outcomes do you expect from the workshop.",
   },
   {
-    title: "Program design",
-    description: "HashVault maps the workshop sequence, faculty support, and assessment checkpoints.",
+    title: "Scoped proposal",
+    description: "HashVault sends a 1–2 page proposal: workshop track, format, pricing, and what we need from your end to run it well.",
   },
   {
-    title: "Live delivery",
-    description: "Operators facilitate the session with clear pacing, escalation, and debrief control.",
+    title: "Workshop delivery",
+    description: "We arrive prepared. 70% hands-on labs, 30% guided instruction. Feedback form collected at close.",
   },
   {
-    title: "Evidence and next step",
-    description: "You leave with capability signals, recommendations, and a path for the next cohort.",
+    title: "Follow-through",
+    description: "You receive a resource pack, participant feedback summary, and a recommended path if you want to run a follow-up session.",
   },
 ];
 
 export function StepsSection() {
   return (
-    <section className="section-frame border-b border-border py-20 lg:py-24">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+    <section className="section-frame relative overflow-hidden border-b border-border py-20 lg:py-24">
+      <AnimatedGridPattern
+        numSquares={20}
+        maxOpacity={0.05}
+        duration={4}
+        width={44}
+        height={44}
+        className="[mask-image:radial-gradient(ellipse_at_center,black_20%,transparent_70%)] opacity-55"
+      />
+      <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
         <p className="section-kicker">Engagement flow</p>
         <div className="border mt-8 grid gap-px bg-border lg:grid-cols-4">
           {steps.map((step, index) => (

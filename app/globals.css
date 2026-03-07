@@ -69,8 +69,8 @@
   --card-foreground: oklch(0.9851 0 0);
   --popover: oklch(0.2652 0.0085 317.7107);
   --popover-foreground: oklch(0.9851 0 0);
-  --primary: oklch(0.9148 0.056 311.0546);
-  --primary-foreground: oklch(0.1535 0.0071 314.6024);
+  --primary: oklch(0.76 0.21 311.0546);
+  --primary-foreground: oklch(0.97 0.005 311.0);
   --secondary: oklch(0.8491 0.0483 311.6867);
   --secondary-foreground: oklch(0.1535 0.0071 314.6024);
   --muted: oklch(0.24 0.0087 317.7038);
@@ -172,9 +172,10 @@
     @apply bg-background text-foreground;
     font-family: var(--font-sans), monospace;
     background-image:
-      linear-gradient(180deg, color-mix(in oklch, var(--background) 86%, var(--color-hash-purple) 14%) 0%, var(--background) 22%),
-      linear-gradient(90deg, transparent 0, transparent calc(100% - 1px), color-mix(in oklch, var(--border) 65%, transparent) calc(100% - 1px));
-    background-size: 100% 100%, 24px 24px;
+      radial-gradient(ellipse 110% 55% at 50% -8%, color-mix(in oklch, var(--primary) 18%, transparent) 0%, transparent 100%),
+      radial-gradient(circle, color-mix(in oklch, var(--border) 85%, transparent) 1px, transparent 1px);
+    background-size: 100% 100%, 30px 30px;
+    background-position: 0 0, 15px 15px;
   }
 
   ::selection {
@@ -226,8 +227,14 @@
   position: absolute;
   inset: 0 auto 0 1.5rem;
   width: 1px;
-  background: linear-gradient(180deg, transparent 0, var(--border) 12%, var(--border) 88%, transparent 100%);
-  opacity: 0.7;
+  background: linear-gradient(
+    180deg,
+    transparent 0,
+    color-mix(in oklch, var(--primary) 50%, var(--border) 50%) 12%,
+    color-mix(in oklch, var(--primary) 50%, var(--border) 50%) 88%,
+    transparent 100%
+  );
+  opacity: 0.6;
 }
 
 .section-kicker {
@@ -270,15 +277,106 @@
   animation: pulse-bar 2.8s cubic-bezier(0.16, 1, 0.3, 1) infinite;
 }
 
+/* ── Animated Grid Pattern — square pulse keyframe ── */
+
+/* Each highlighted rect uses var(--gmax) for its peak opacity,
+   set as an inline CSS custom property on the element itself.
+   CSS custom properties are resolved per-element so this works
+   correctly even inside @keyframes. */
+@keyframes agp-pulse {
+  0%   { opacity: 0; }
+  20%  { opacity: var(--gmax, 0.08); }
+  80%  { opacity: var(--gmax, 0.08); }
+  100% { opacity: 0; }
+}
+
+/* ── Philosophy section accent ── */
+
+.philosophy-gradient-line {
+  background: linear-gradient(90deg, var(--primary), color-mix(in oklch, var(--primary) 30%, transparent), transparent);
+}
+
+/* ── Primary glow for key panels ── */
+
+.glow-panel {
+  box-shadow:
+    0 0 0 1px color-mix(in oklch, var(--primary) 25%, var(--border) 75%),
+    0 0 40px -8px color-mix(in oklch, var(--primary) 30%, transparent),
+    0 4px 24px -4px color-mix(in oklch, var(--background) 60%, transparent);
+}
+
 @media (max-width: 768px) {
   .section-frame::before {
     left: 1rem;
   }
 }
 
+/* ── Scroll-reveal (driven by PageAnimations component) ──────────────────── */
+
+/*
+ * Elements start fully visible (no CSS opacity: 0 here) so that
+ * server-rendered content is immediately readable before hydration.
+ * The PageAnimations component adds the .scroll-reveal class via JS
+ * AFTER mount, applying the hidden state and then observing with
+ * IntersectionObserver. This prevents flash-of-invisible-content on SSR.
+ */
+
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 0.62s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.62s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.scroll-reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Sonar / coming-soon pulse ──────────────────────────────────────────── */
+
+@keyframes sonar-ring {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+.sonar-btn {
+  position: relative;
+  display: inline-flex;
+}
+
+.sonar-btn::before,
+.sonar-btn::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border: 1px solid color-mix(in oklch, var(--primary) 70%, transparent);
+  animation: sonar-ring 2s cubic-bezier(0.2, 0, 0.8, 1) infinite;
+  pointer-events: none;
+}
+
+.sonar-btn::after {
+  animation-delay: 0.8s;
+}
+
+/* ── Reduced-motion override ────────────────────────────────────────────── */
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+
+  .scroll-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
   }
 
   .reveal-up,
@@ -287,5 +385,18 @@
   .reveal-up-delay-3,
   .pulse-bar {
     animation: none;
+    opacity: 1;
+  }
+
+  .sonar-btn::before,
+  .sonar-btn::after {
+    animation: none;
+    opacity: 0;
+  }
+
+  /* Keep grid squares at their max opacity instead of animating */
+  [style*="agp-pulse"] {
+    animation: none !important;
+    opacity: var(--gmax, 0.08) !important;
   }
 }

@@ -1,71 +1,92 @@
-const features = [
+import Image from "next/image";
+import { AnimatedGridPattern } from "@/components/animated-grid-pattern";
+
+type Founder = {
+  slug: string;
+  name: string;
+  role: string;
+  bio: string;
+  photo: string;
+};
+
+const founders: Founder[] = [
   {
-    id: "Practice 01",
-    title: "Red team drills",
-    copy: "Attack-path design grounded in current infrastructure realities.",
+    slug: "adithya",
+    name: "Adithyakarthik M",
+    role: "Founder & CEO",
+    bio: "Security enthusiast focused on building softwares, communities. Creating platforms, challenges, and systems that make a real impact.",
+    photo: "https://d24q3y6jxt.ufs.sh/f/wABoABEeZWc0Y3CFhliR2SQKfbL8GF6pcd9rqwayngBzDmZA",
   },
   {
-    id: "Practice 02",
-    title: "Blue team response",
-    copy: "Triage, containment, communication, and reporting under time pressure.",
-  },
-  {
-    id: "Practice 03",
-    title: "Reverse engineering",
-    copy: "Binary and payload analysis used to sharpen technical judgment.",
-  },
-  {
-    id: "Practice 04",
-    title: "Incident review",
-    copy: "Debriefs that convert raw activity into observable capability growth.",
+    slug: "abhishek",
+    name: "Abhishek M L",
+    role: "Co-Founder & CTO",
+    bio: "Breaking systems to understand them, securing them to improve them — focused on offensive security.",
+    photo: "https://d24q3y6jxt.ufs.sh/f/wABoABEeZWc0XlfzfRdcp9vHL6c0KJOr7FQTlX41ZSjnmRzC",
   },
 ];
 
 export function PractitionersSection() {
   return (
-    <section className="section-frame border-b border-border py-28 lg:py-36">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="grid gap-16 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-start lg:gap-24">
+    <section className="section-frame relative overflow-hidden border-b border-border py-24 lg:py-32">
+      <AnimatedGridPattern
+        numSquares={30}
+        maxOpacity={0.04}
+        duration={5}
+        width={44}
+        height={44}
+        className="[mask-image:radial-gradient(ellipse_at_center,black_30%,transparent_72%)] opacity-40"
+      />
 
-          {/* ── left ── */}
-          <div className="lg:sticky lg:top-12 lg:pt-1">
-            <p className="section-kicker">Who leads the work</p>
-            <h2 className="mt-5 text-3xl leading-[1.15] tracking-tight text-foreground sm:text-4xl lg:text-[2.75rem]">
-              Built by practitioners, not by people designing{" "}
-              <span className="text-muted-foreground">around the rubric.</span>
-            </h2>
-            <div className="mt-8 h-px w-12 bg-primary" />
-            <p className="mt-6 text-sm leading-[1.85] text-muted-foreground">
-              Every module is authored and stress-tested by operators who have
-              run these scenarios in live environments — not adapted from
-              certification frameworks.
-            </p>
-          </div>
+      <div className="relative mx-auto max-w-5xl px-6 lg:px-8">
 
-          {/* ── right: feature grid ── */}
-          <div className="grid gap-px bg-border border sm:grid-cols-2">
-            {features.map((feature) => (
-              <article
-                key={feature.id}
-                className="group relative bg-card px-7 py-8 transition-colors hover:bg-card/70 sm:px-8 sm:py-9"
-              >
-                {/* top accent line */}
-                <div className="absolute inset-x-0 top-0 h-px bg-primary opacity-0 transition-opacity group-hover:opacity-100" />
-
-                <p className="text-[0.68rem] uppercase tracking-[0.2em] text-muted-foreground">
-                  {feature.id}
-                </p>
-                <h3 className="mt-5 text-base leading-snug text-card-foreground sm:text-lg">
-                  {feature.title}
-                </h3>
-                <p className="mt-4 text-sm leading-[1.85] text-muted-foreground">
-                  {feature.copy}
-                </p>
-              </article>
-            ))}
-          </div>
-
+        {/* ── Header ── */}
+        <div className="mb-14 max-w-xl">
+          <p className="section-kicker">Who leads the work</p>
+          <h2 className="mt-4 text-3xl leading-[1.15] tracking-tight text-foreground sm:text-4xl lg:text-[2.75rem]">
+            Built by practitioners, not by people designing{" "}
+            <span className="text-muted-foreground">around the rubric.</span>
+          </h2>
+          <div className="mt-7 h-px w-12 bg-primary" />
         </div>
+
+        {/* ── Founder cards ── */}
+        <div className="grid gap-px border border-border bg-border sm:grid-cols-2">
+          {founders.map((founder) => (
+            <article
+              key={founder.slug}
+              className="group relative flex flex-col bg-card transition-colors hover:bg-card/80"
+            >
+              {/* Top accent on hover */}
+              <div className="absolute inset-x-0 top-0 h-px bg-primary opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+
+              {/* ── Photo ── */}
+              <div className="relative w-full border-b border-border" style={{ aspectRatio: "4 / 5" }}>
+                <Image
+                  src={founder.photo}
+                  alt={founder.name}
+                  fill
+                  className="object-cover object-top"
+                  sizes="(max-width: 640px) 100vw, 50vw"
+                />
+              </div>
+
+              {/* ── Text ── */}
+              <div className="flex flex-1 flex-col px-7 py-7 sm:px-8 sm:py-8">
+                <p className="text-base font-medium text-card-foreground sm:text-lg">
+                  {founder.name}
+                </p>
+                <p className="mt-1 text-[0.72rem] uppercase tracking-[0.18em] text-muted-foreground">
+                  {founder.role}
+                </p>
+                <p className="mt-4 text-sm leading-[1.85] text-muted-foreground">
+                  {founder.bio}
+                </p>
+              </div>
+            </article>
+          ))}
+        </div>
+
       </div>
     </section>
   );
