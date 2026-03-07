@@ -277,43 +277,17 @@
   animation: pulse-bar 2.8s cubic-bezier(0.16, 1, 0.3, 1) infinite;
 }
 
-/* ── Terminal animation utilities ── */
+/* ── Animated Grid Pattern — square pulse keyframe ── */
 
-@keyframes terminal-reveal {
-  from {
-    opacity: 0;
-    transform: translate3d(0, 5px, 0);
-  }
-  to {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
-}
-
-@keyframes cursor-blink {
-  0%, 49% { opacity: 1; }
-  50%, 100% { opacity: 0; }
-}
-
-@keyframes scan-sweep {
-  0%   { transform: translateY(-2px); opacity: 0; }
-  4%   { opacity: 1; }
-  96%  { opacity: 0.6; }
-  100% { transform: translateY(100%); opacity: 0; }
-}
-
-.terminal-reveal {
-  opacity: 0;
-  animation: terminal-reveal 0.38s cubic-bezier(0.16, 1, 0.3, 1) both;
-}
-
-.cursor-blink {
-  animation: cursor-blink 1.05s step-end infinite;
-}
-
-.scan-sweep {
-  animation: scan-sweep 5s linear infinite;
-  animation-delay: 1.2s;
+/* Each highlighted rect uses var(--gmax) for its peak opacity,
+   set as an inline CSS custom property on the element itself.
+   CSS custom properties are resolved per-element so this works
+   correctly even inside @keyframes. */
+@keyframes agp-pulse {
+  0%   { opacity: 0; }
+  20%  { opacity: var(--gmax, 0.08); }
+  80%  { opacity: var(--gmax, 0.08); }
+  100% { opacity: 0; }
 }
 
 /* ── Philosophy section accent ── */
@@ -346,11 +320,14 @@
   .reveal-up-delay-1,
   .reveal-up-delay-2,
   .reveal-up-delay-3,
-  .pulse-bar,
-  .terminal-reveal,
-  .cursor-blink,
-  .scan-sweep {
+  .pulse-bar {
     animation: none;
     opacity: 1;
+  }
+
+  /* Keep grid squares at their max opacity instead of animating */
+  [style*="agp-pulse"] {
+    animation: none !important;
+    opacity: var(--gmax, 0.08) !important;
   }
 }

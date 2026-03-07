@@ -1,5 +1,6 @@
-import { ArrowRight } from "@phosphor-icons/react/dist/ssr";
+import { ArrowRight, CheckCircle, ShieldCheck } from "@phosphor-icons/react/dist/ssr";
 import { Button } from "@/components/ui/button";
+import { AnimatedGridPattern } from "@/components/animated-grid-pattern";
 
 const stats = [
   { value: "70/30", label: "Hands-on ratio" },
@@ -8,63 +9,33 @@ const stats = [
   { value: "1–3 days", label: "Formats available" },
 ];
 
-// Each line reveals sequentially via CSS animation-delay + animation-fill-mode:both
-const terminalLines = [
-  {
-    type: "cmd",
-    content: "$ hashvault scan --cohort cs-engineering --track ethical-hacking",
-    delay: 0.3,
-  },
-  {
-    type: "status",
-    text: "◆ Loading threat scenario library",
-    dots: " ...............",
-    status: "done",
-    delay: 0.9,
-  },
-  {
-    type: "status",
-    text: "◆ Staging live lab environment",
-    dots: " ...................",
-    status: "done",
-    delay: 1.5,
-  },
-  {
-    type: "status",
-    text: "◆ Mapping cohort capability gaps",
-    dots: " .................",
-    status: "done",
-    delay: 2.1,
-  },
-  {
-    type: "status",
-    text: "◆ Generating assessment checkpoints",
-    dots: " .............",
-    status: "done",
-    delay: 2.7,
-  },
-  { type: "blank", delay: 3.0 },
-  {
-    type: "result",
-    content: "▶  Session ready  ·  78 learners  ·  HV-220 Ethical Hacking Bootcamp",
-    delay: 3.2,
-  },
-  {
-    type: "detail",
-    content: "   Delivery: Bangalore, Karnataka  —  HashVault Systems LLP",
-    delay: 3.6,
-  },
-  {
-    type: "progress",
-    delay: 4.0,
-  },
-  { type: "cursor", delay: 4.4 },
+const evidenceRows = [
+  "Hands-on labs mapped to real attacker workflows — not toy challenges",
+  "Workshop formats colleges can adopt without heavy faculty overhead",
+  "Assessment checkpoints with feedback at each stage of delivery",
+  "Debriefs that convert lab activity into visible capability growth",
 ];
 
 export function HeroSection() {
   return (
     <section className="section-frame relative overflow-hidden border-b border-border pt-18 lg:pt-12">
-      <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8 lg:py-16 xl:py-18">
+
+      {/* ── Animated grid pattern background ── */}
+      <AnimatedGridPattern
+        numSquares={35}
+        maxOpacity={0.06}
+        duration={4}
+        width={44}
+        height={44}
+        className={[
+          // Fade to transparent at the bottom so the grid doesn't bleed into the next section
+          "[mask-image:linear-gradient(to_bottom,transparent_0%,black_12%,black_72%,transparent_100%)]",
+          // Also fade horizontally at far edges
+          "opacity-70",
+        ].join(" ")}
+      />
+
+      <div className="relative mx-auto max-w-7xl px-6 py-12 lg:px-8 lg:py-16 xl:py-18">
         <div className="max-w-4xl">
           <p className="section-kicker reveal-up">
             Practitioner-led cybersecurity training · Bangalore, India
@@ -108,7 +79,7 @@ export function HeroSection() {
           {stats.map((stat) => (
             <div
               key={stat.label}
-              className="bg-card/80 px-6 py-5 text-center sm:py-6"
+              className="bg-card/80 px-6 py-5 text-center backdrop-blur-sm sm:py-6"
             >
               <p className="display-title text-2xl text-primary sm:text-3xl">{stat.value}</p>
               <p className="mt-2 text-[0.66rem] uppercase tracking-[0.18em] text-muted-foreground">
@@ -118,106 +89,60 @@ export function HeroSection() {
           ))}
         </div>
 
-        {/* ── Terminal window ── */}
-        <div className="reveal-up reveal-up-delay-3 relative mt-6 overflow-hidden glow-panel">
+        {/* ── Evidence card ── */}
+        <div className="reveal-up reveal-up-delay-2 relative mt-6 overflow-hidden border border-border bg-card/70 backdrop-blur-sm">
 
-          {/* Scan sweep line — purely decorative */}
+          {/* Subtle inner grid overlay for depth */}
           <div
-            className="scan-sweep pointer-events-none absolute inset-x-0 top-0 h-[1px] opacity-0"
+            className="absolute inset-0 opacity-40"
             style={{
-              background:
-                "linear-gradient(90deg, transparent 0%, color-mix(in oklch, var(--primary) 55%, transparent) 50%, transparent 100%)",
+              backgroundImage: [
+                "radial-gradient(circle at top left, color-mix(in oklch, var(--primary) 10%, transparent), transparent 50%)",
+              ].join(","),
             }}
           />
 
-          {/* Terminal chrome */}
-          <div className="flex items-center gap-2 border-b border-border bg-card/90 px-4 py-3 sm:px-5">
-            <span className="h-3 w-3 rounded-full bg-destructive/70" />
-            <span className="h-3 w-3 rounded-full opacity-70" style={{ background: "oklch(0.78 0.16 85)" }} />
-            <span className="h-3 w-3 rounded-full opacity-70" style={{ background: "oklch(0.72 0.18 145)" }} />
-            <span className="ml-3 text-[0.66rem] uppercase tracking-[0.18em] text-muted-foreground/60">
-              hv-scanner — ethical-hacking-bootcamp
-            </span>
-            <span
-              className="ml-auto text-[0.66rem] uppercase tracking-[0.14em] cursor-blink"
-              style={{ color: "color-mix(in oklch, var(--primary) 80%, var(--muted-foreground) 20%)" }}
-            >
-              ● LIVE
-            </span>
-          </div>
+          <div className="relative p-6 sm:p-8 lg:p-10 xl:p-12">
+            <div className="mx-auto max-w-4xl">
+              <div className="w-full border border-border bg-background/80 p-4 shadow-sm sm:p-5 lg:p-6">
+                <div className="flex items-center justify-between gap-3 border-b border-border pb-4">
+                  <div className="flex items-center gap-3">
+                    <ShieldCheck size={18} className="text-primary" />
+                    <div>
+                      <p className="text-sm text-foreground">Program validation in motion</p>
+                      <p className="mt-1 text-sm text-muted-foreground">Evidence and scenario review</p>
+                    </div>
+                  </div>
+                  <span
+                    className="shrink-0 border border-border px-2.5 py-1 text-[0.62rem] uppercase tracking-[0.16em]"
+                    style={{ color: "color-mix(in oklch, var(--primary) 80%, var(--muted-foreground) 20%)" }}
+                  >
+                    Live
+                  </span>
+                </div>
 
-          {/* Terminal body */}
-          <div className="overflow-x-auto bg-card/60 px-5 py-6 sm:px-7 sm:py-7">
-            <div className="min-w-[520px] space-y-1 font-mono text-[0.78rem] leading-relaxed sm:text-[0.85rem]">
-              {terminalLines.map((line, i) => {
-                const style = { animationDelay: `${line.delay}s` };
-
-                if (line.type === "cmd") {
-                  return (
-                    <div key={i} className="terminal-reveal" style={style}>
-                      <span style={{ color: "color-mix(in oklch, var(--primary) 90%, var(--foreground) 10%)" }}>
-                        {line.content}
+                <div className="mt-4 space-y-3">
+                  {evidenceRows.map((row) => (
+                    <div
+                      key={row}
+                      className="flex items-center justify-between gap-4 border border-border/80 bg-card px-4 py-3 sm:px-5"
+                    >
+                      <div className="flex min-w-0 items-center gap-3">
+                        <CheckCircle
+                          className="size-5 shrink-0 text-primary"
+                          weight="fill"
+                        />
+                        <p className="text-sm leading-6 text-card-foreground sm:text-[0.96rem]">
+                          {row}
+                        </p>
+                      </div>
+                      <span className="shrink-0 border border-border px-2.5 py-1 text-[0.66rem] uppercase tracking-[0.16em] text-muted-foreground">
+                        Ready
                       </span>
                     </div>
-                  );
-                }
-
-                if (line.type === "status") {
-                  return (
-                    <div key={i} className="terminal-reveal" style={style}>
-                      <span className="text-muted-foreground">{line.text}</span>
-                      <span className="text-border/70">{line.dots}</span>
-                      <span style={{ color: "color-mix(in oklch, var(--primary) 85%, var(--foreground) 15%)" }}>
-                        {" "}{line.status}
-                      </span>
-                    </div>
-                  );
-                }
-
-                if (line.type === "blank") {
-                  return <div key={i} className="terminal-reveal h-3" style={style} />;
-                }
-
-                if (line.type === "result") {
-                  return (
-                    <div key={i} className="terminal-reveal" style={style}>
-                      <span className="font-semibold text-foreground">{line.content}</span>
-                    </div>
-                  );
-                }
-
-                if (line.type === "detail") {
-                  return (
-                    <div key={i} className="terminal-reveal" style={style}>
-                      <span className="text-muted-foreground">{line.content}</span>
-                    </div>
-                  );
-                }
-
-                if (line.type === "progress") {
-                  return (
-                    <div key={i} className="terminal-reveal mt-2" style={style}>
-                      <span className="text-muted-foreground">{"  "}[</span>
-                      <span style={{ color: "var(--primary)" }}>{"████████████████████"}</span>
-                      <span className="text-muted-foreground">] 100%</span>
-                      <span className="ml-3 text-muted-foreground/60">— workshop ready</span>
-                    </div>
-                  );
-                }
-
-                if (line.type === "cursor") {
-                  return (
-                    <div key={i} className="terminal-reveal mt-1" style={style}>
-                      <span
-                        className="cursor-blink inline-block w-[0.52em] h-[1.05em] align-middle"
-                        style={{ background: "var(--primary)" }}
-                      />
-                    </div>
-                  );
-                }
-
-                return null;
-              })}
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>
