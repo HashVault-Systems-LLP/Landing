@@ -15,17 +15,19 @@ export function PhilosophySection() {
         className="[mask-image:radial-gradient(ellipse_60%_80%_at_30%_50%,black_30%,transparent_80%)] opacity-50"
       />
 
-      {/* Large decorative background numeral — dithered */}
+      {/* Large decorative background numeral — Bayer-dithered with cross pattern */}
       <div
-        className="pointer-events-none select-none absolute -right-6 top-1/2 -translate-y-1/2 opacity-[0.18]"
+        className="pointer-events-none select-none absolute -right-6 top-1/2 -translate-y-1/2 opacity-[0.32]"
         style={{ width: "clamp(8rem, 22vw, 22rem)", height: "clamp(8rem, 22vw, 22rem)" }}
         aria-hidden="true"
       >
         <DitherText
           text="01"
-          pixelScale={0.3}
+          pixelScale={0.1}
           fontScale={0.82}
           colorRgb={[160, 100, 240]}
+          density={0.62}
+          gradientMode="radial"
         />
       </div>
 

@@ -21,9 +21,9 @@ export function Footer() {
         className="[mask-image:linear-gradient(to_bottom,black_0%,black_60%,transparent_100%)] opacity-40"
       />
 
-      {/* Full-width dithered HASHVAULT background text */}
+      {/* Full-width dithered HASHVAULT background text — Bayer cross pattern */}
       <div
-        className="pointer-events-none select-none absolute inset-x-0 bottom-0 opacity-[0.09]"
+        className="pointer-events-none select-none absolute inset-x-0 bottom-0 opacity-[0.18]"
         style={{ height: "140%" }}
         aria-hidden="true"
       >
@@ -33,6 +33,8 @@ export function Footer() {
           pixelScale={0.18}
           fontScale={0.55}
           colorRgb={[160, 100, 240]}
+          density={0.58}
+          gradientMode="flat"
         />
       </div>
 
