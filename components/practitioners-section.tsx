@@ -28,7 +28,7 @@ const founders: Founder[] = [
 
 export function PractitionersSection() {
   return (
-    <section className="section-frame relative overflow-hidden border-b border-border py-24 lg:py-32">
+    <section className="section-frame relative overflow-hidden border-b border-border py-16 sm:py-20 lg:py-32">
       <AnimatedGridPattern
         numSquares={30}
         maxOpacity={0.04}
@@ -38,12 +38,12 @@ export function PractitionersSection() {
         className="[mask-image:radial-gradient(ellipse_at_center,black_30%,transparent_72%)] opacity-40"
       />
 
-      <div className="relative mx-auto max-w-5xl px-6 lg:px-8">
+      <div className="relative mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
 
         {/* ── Header ── */}
-        <div className="mb-14 max-w-xl">
+        <div className="mb-10 max-w-4xl sm:mb-14">
           <p className="section-kicker">Who leads the work</p>
-          <h2 className="mt-4 text-3xl leading-[1.15] tracking-tight text-foreground sm:text-4xl lg:text-[2.75rem]">
+          <h2 className="mt-4 text-2xl text-foreground sm:text-4xl lg:text-[2.75rem]">
             Built by practitioners, not by people designing{" "}
             <span className="text-muted-foreground">around the rubric.</span>
           </h2>

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowLeft } from "@phosphor-icons/react/dist/ssr";
+import { ArrowLeftIcon } from "@phosphor-icons/react/dist/ssr";
 
 export const metadata: Metadata = {
   title: "Privacy Policy | HashVault Systems LLP",
@@ -15,21 +15,21 @@ export default function PrivacyPage() {
     <div className="min-h-screen bg-background">
       {/* Back nav */}
       <div className="border-b border-border">
-        <div className="mx-auto max-w-4xl px-6 py-4 lg:px-8">
+        <div className="mx-auto max-w-4xl px-4 py-4 sm:px-6 lg:px-8">
           <Link
             href="/"
             className="inline-flex items-center gap-2 text-[0.72rem] uppercase tracking-[0.18em] text-muted-foreground transition-colors hover:text-foreground"
           >
-            <ArrowLeft size={13} weight="bold" />
+            <ArrowLeftIcon size={13} weight="bold" />
             Back to site
           </Link>
         </div>
       </div>
 
-      <div className="mx-auto max-w-4xl px-6 py-16 lg:px-8 lg:py-24">
+      <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-24">
         {/* Header */}
         <p className="section-kicker">Legal</p>
-        <h1 className="display-title mt-4 text-4xl text-foreground sm:text-5xl">
+        <h1 className="display-title mt-4 text-[2.5rem] text-foreground sm:text-5xl">
           Privacy Policy
         </h1>
         <p className="mt-4 text-sm text-muted-foreground">

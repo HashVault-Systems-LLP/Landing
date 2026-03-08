@@ -3,7 +3,7 @@ import { DitherText } from "@/components/dither-text";
 
 export function PhilosophySection() {
   return (
-    <section className="section-frame relative overflow-hidden border-b border-border py-24 lg:py-36">
+    <section className="section-frame relative overflow-hidden border-b border-border py-16 sm:py-20 lg:py-36">
 
       {/* Animated grid background */}
       <AnimatedGridPattern
@@ -12,13 +12,13 @@ export function PhilosophySection() {
         duration={6}
         width={44}
         height={44}
-        className="[mask-image:radial-gradient(ellipse_60%_80%_at_30%_50%,black_30%,transparent_80%)] opacity-50"
+        className="mask-[radial-gradient(ellipse_60%_80%_at_30%_50%,black_30%,transparent_80%)] opacity-50"
       />
 
       {/* Large decorative background numeral — Bayer-dithered with cross pattern */}
       <div
-        className="pointer-events-none select-none absolute -right-6 top-1/2 -translate-y-1/2 opacity-[0.32]"
-        style={{ width: "clamp(8rem, 22vw, 22rem)", height: "clamp(8rem, 22vw, 22rem)" }}
+        className="pointer-events-none absolute right-24 top-1/2 hidden -translate-y-1/2 select-none opacity-[0.32] sm:block"
+        style={{ width: "clamp(8rem, 26vw, 26rem)", height: "clamp(8rem, 26vw, 26rem)" }}
         aria-hidden="true"
       >
         <DitherText
@@ -33,19 +33,19 @@ export function PhilosophySection() {
 
       {/* Ambient glow blob behind the quote */}
       <div
-        className="pointer-events-none absolute left-1/4 top-1/2 -translate-y-1/2 -translate-x-1/2 h-72 w-[560px] opacity-25 blur-3xl"
+        className="pointer-events-none absolute left-1/4 top-1/2 hidden h-72 w-[560px] -translate-x-1/2 -translate-y-1/2 opacity-25 blur-3xl sm:block"
         style={{
           background:
             "radial-gradient(ellipse at center, color-mix(in oklch, var(--primary) 55%, transparent), transparent 70%)",
         }}
       />
 
-      <div className="relative mx-auto max-w-5xl px-6 lg:px-8">
+      <div className="relative mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         <p className="section-kicker">Operating principle</p>
         {/* Gradient underline accent */}
         <div className="mt-3 h-px max-w-xs philosophy-gradient-line" />
 
-        <blockquote className="mt-8 text-3xl leading-[1.12] tracking-tight text-foreground sm:text-4xl lg:text-5xl">
+        <blockquote className="mt-8 max-w-4xl text-2xl tracking-tight text-foreground sm:text-4xl lg:text-5xl">
           Build practitioners who are{" "}
           <span style={{ color: "var(--primary)" }}>practically ready,</span>{" "}
           have industry level exposure & work with the current tools and techniques.

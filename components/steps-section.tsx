@@ -21,7 +21,7 @@ const steps = [
 
 export function StepsSection() {
   return (
-    <section className="section-frame relative overflow-hidden border-b border-border py-20 lg:py-24">
+    <section className="section-frame relative overflow-hidden border-b border-border py-14 sm:py-16 lg:py-24">
       <AnimatedGridPattern
         numSquares={20}
         maxOpacity={0.05}
@@ -30,14 +30,14 @@ export function StepsSection() {
         height={44}
         className="[mask-image:radial-gradient(ellipse_at_center,black_20%,transparent_70%)] opacity-55"
       />
-      <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <p className="section-kicker">Engagement flow</p>
-        <div className="border mt-8 grid gap-px bg-border lg:grid-cols-4">
+        <div className="mt-6 grid border gap-px bg-border sm:mt-8 md:grid-cols-2 xl:grid-cols-4">
           {steps.map((step, index) => (
             <article key={step.title} className="bg-background px-6 py-8 sm:px-7">
               <p className="text-[0.72rem] uppercase tracking-[0.18em] text-muted-foreground">Step 0{index + 1}</p>
               <h3 className="mt-5 text-lg text-foreground">{step.title}</h3>
-              <p className="mt-4 text-sm leading-7 text-muted-foreground">{step.description}</p>
+              <p className="mt-4 text-sm text-muted-foreground">{step.description}</p>
             </article>
           ))}
         </div>

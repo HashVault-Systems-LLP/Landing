@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Plus } from "@phosphor-icons/react";
+import { PlusIcon } from "@phosphor-icons/react";
 import { AnimatedGridPattern } from "@/components/animated-grid-pattern";
 
 type FaqItem = {
@@ -48,7 +48,7 @@ export function FaqSection() {
   };
 
   return (
-    <section className="section-frame relative overflow-hidden border-b border-border py-20 lg:py-28">
+    <section className="section-frame relative overflow-hidden border-b border-border py-14 sm:py-16 lg:py-28">
       <AnimatedGridPattern
         numSquares={15}
         maxOpacity={0.04}
@@ -58,13 +58,13 @@ export function FaqSection() {
         className="[mask-image:linear-gradient(to_bottom,transparent_0%,black_20%,black_80%,transparent_100%)] opacity-40"
       />
 
-      <div className="relative mx-auto max-w-4xl px-6 lg:px-8">
+      <div className="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         <p className="section-kicker">Common questions</p>
-        <h2 className="mt-4 text-3xl leading-tight text-foreground sm:text-4xl">
+        <h2 className="mt-4 text-2xl text-foreground sm:text-4xl">
           Everything you need to know before the briefing.
         </h2>
 
-        <div className="mt-12 divide-y divide-border border-y border-border">
+        <div className="mt-8 divide-y divide-border border-y border-border sm:mt-12">
           {faqs.map((item, i) => {
             const isOpen = openIndex === i;
             return (
@@ -72,9 +72,9 @@ export function FaqSection() {
                 <button
                   onClick={() => toggle(i)}
                   aria-expanded={isOpen}
-                  className="group flex w-full items-start justify-between gap-6 px-0 py-5 text-left transition-colors hover:text-primary"
+                  className="group flex w-full items-start justify-between gap-4 px-0 py-5 text-left transition-colors hover:text-primary sm:gap-6"
                 >
-                  <span className="text-[0.95rem] leading-snug text-foreground group-hover:text-primary transition-colors">
+                  <span className="text-[0.92rem] leading-snug text-foreground transition-colors group-hover:text-primary sm:text-[0.95rem]">
                     {item.q}
                   </span>
                   <span
@@ -82,7 +82,7 @@ export function FaqSection() {
                     style={{ transform: isOpen ? "rotate(45deg)" : "rotate(0deg)" }}
                     aria-hidden="true"
                   >
-                    <Plus size={16} weight="bold" />
+                    <PlusIcon size={16} weight="bold" />
                   </span>
                 </button>
 

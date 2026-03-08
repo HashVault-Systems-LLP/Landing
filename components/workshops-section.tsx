@@ -1,6 +1,6 @@
 import { Badge } from "@/components/ui/badge";
 import { AnimatedGridPattern } from "@/components/animated-grid-pattern";
-import { ArrowDown } from "@phosphor-icons/react/dist/ssr";
+import { ArrowDownIcon } from "@phosphor-icons/react/dist/ssr";
 
 const workshopsData = [
   {
@@ -47,7 +47,7 @@ const workshopsData = [
 
 export function WorkshopsSection() {
   return (
-    <section id="workshops" className="section-frame relative overflow-hidden border-b border-border py-20 lg:py-24">
+    <section id="workshops" className="section-frame relative overflow-hidden border-b border-border py-14 sm:py-16 lg:py-24">
       <AnimatedGridPattern
         numSquares={20}
         maxOpacity={0.04}
@@ -56,15 +56,43 @@ export function WorkshopsSection() {
         height={44}
         className="[mask-image:linear-gradient(to_bottom,transparent_0%,black_20%,black_80%,transparent_100%)] opacity-50"
       />
-      <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-10 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
           <div>
             <p className="section-kicker">Workshop catalogue</p>
-            <h2 className="mt-4 text-3xl leading-tight text-foreground sm:text-4xl">Programs that feel current, not outdated.</h2>
+            <h2 className="mt-4 text-2xl text-foreground sm:text-4xl">Programs that feel current, not outdated.</h2>
           </div>
         </div>
 
-        <div className="overflow-x-auto border border-border">
+        <div className="border border-border bg-border md:hidden">
+          <div className="grid gap-px">
+            {workshopsData.map((row) => (
+              <article key={row.id} className="bg-card p-5">
+                <div className="flex flex-wrap items-start justify-between gap-3">
+                  <div>
+                    <p className="text-[0.68rem] uppercase tracking-[0.18em] text-muted-foreground">{row.id}</p>
+                    <h3 className="mt-2 text-base text-card-foreground">{row.name}</h3>
+                  </div>
+                  <Badge variant="outline" className={`${row.difficultyClass} border shrink-0`}>
+                    {row.difficulty}
+                  </Badge>
+                </div>
+                <dl className="mt-5 grid gap-4 text-sm">
+                  <div>
+                    <dt className="text-[0.68rem] uppercase tracking-[0.18em] text-muted-foreground">Duration</dt>
+                    <dd className="mt-1 text-card-foreground">{row.duration}</dd>
+                  </div>
+                  <div>
+                    <dt className="text-[0.68rem] uppercase tracking-[0.18em] text-muted-foreground">Coverage</dt>
+                    <dd className="mt-1 text-muted-foreground">{row.stack}</dd>
+                  </div>
+                </dl>
+              </article>
+            ))}
+          </div>
+        </div>
+
+        <div className="hidden overflow-x-auto border border-border md:block">
           <table className="w-full min-w-[720px] border-collapse text-left text-sm">
             <thead className="bg-accent/55 text-[0.72rem] uppercase tracking-[0.18em] text-muted-foreground">
               <tr>
@@ -92,7 +120,7 @@ export function WorkshopsSection() {
         </div>
 
         {/* ── Syllabus CTA ── */}
-        <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between border border-border bg-card/60 px-6 py-5">
+        <div className="mt-8 flex flex-col gap-4 border border-border bg-card/60 px-5 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-6">
           <div>
             <p className="text-[0.82rem] text-foreground">Sample syllabus</p>
             <p className="mt-1 text-xs leading-6 text-muted-foreground">
@@ -103,9 +131,9 @@ export function WorkshopsSection() {
             <button
               disabled
               aria-label="Download sample syllabus — coming soon"
-              className="relative flex items-center gap-2.5 border border-border bg-background/60 px-5 py-2.5 text-[0.72rem] uppercase tracking-[0.18em] text-muted-foreground cursor-not-allowed select-none"
+              className="relative flex w-full items-center justify-center gap-2.5 border border-border bg-background/60 px-5 py-2.5 text-center text-[0.72rem] uppercase tracking-[0.18em] text-muted-foreground cursor-not-allowed select-none sm:w-auto"
             >
-              <ArrowDown size={14} weight="bold" />
+              <ArrowDownIcon size={14} weight="bold" />
               Download syllabus
               <span className="ml-1 border border-primary/30 bg-primary/10 px-2 py-0.5 text-[0.6rem] uppercase tracking-[0.14em] text-primary">
                 Coming soon

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { List, X } from "@phosphor-icons/react";
+import { ListIcon, XIcon } from "@phosphor-icons/react";
 import { Button } from "@/components/ui/button";
 
 const navLinks = [
@@ -15,10 +15,12 @@ export function Navbar() {
 
   return (
     <nav className="fixed inset-x-0 top-0 z-50 border-b border-border/80 bg-background/88 backdrop-blur-md">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
-        <a href="#" className="flex items-center gap-3 text-sm uppercase tracking-[0.22em] text-foreground">
-          <span className="inline-flex h-2.5 w-2.5 bg-primary" />
-          <span className="display-title text-lg normal-case tracking-[-0.04em]">HashVault Systems</span>
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3.5 sm:px-6 sm:py-4 lg:px-8">
+        <a href="#" className="flex min-w-0 items-center gap-3 text-sm uppercase tracking-[0.22em] text-foreground">
+          <span className="inline-flex h-2.5 w-2.5 shrink-0 bg-primary" />
+          <span className="display-title truncate text-base normal-case tracking-[-0.04em] sm:text-lg">
+            HashVault Systems
+          </span>
         </a>
 
         <div className="hidden items-center gap-2 md:flex">
@@ -50,13 +52,14 @@ export function Navbar() {
           className="border border-border md:hidden"
           onClick={() => setMobileOpen((open) => !open)}
           aria-label="Toggle navigation"
+          aria-expanded={mobileOpen}
         >
-          {mobileOpen ? <X size={18} /> : <List size={18} />}
+          {mobileOpen ? <XIcon size={18} /> : <ListIcon size={18} />}
         </Button>
       </div>
 
       {mobileOpen && (
-        <div className="border-t border-border bg-background px-6 py-4 md:hidden">
+        <div className="border-t border-border bg-background px-4 py-4 sm:px-6 md:hidden">
           <div className="flex flex-col gap-2">
             {navLinks.map((link) => (
               <Button
@@ -65,7 +68,7 @@ export function Navbar() {
                 size="sm"
                 nativeButton={false}
                 render={<a href={link.href} />}
-                className="justify-start border border-transparent px-0 text-[0.8rem] uppercase tracking-[0.16em] text-muted-foreground hover:text-foreground"
+                className="h-10 justify-start border border-transparent px-0 text-[0.8rem] uppercase tracking-[0.16em] text-muted-foreground hover:text-foreground"
                 onClick={() => setMobileOpen(false)}
               >
                 {link.label}
@@ -75,7 +78,7 @@ export function Navbar() {
               size="sm"
               nativeButton={false}
               render={<a href="#contact" />}
-              className="mt-2 justify-center border border-primary bg-primary text-[0.75rem] uppercase tracking-[0.18em] text-primary-foreground"
+              className="mt-2 h-10 justify-center border border-primary bg-primary text-[0.75rem] uppercase tracking-[0.18em] text-primary-foreground"
               onClick={() => setMobileOpen(false)}
             >
               Book briefing

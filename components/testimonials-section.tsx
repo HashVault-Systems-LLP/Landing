@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { Star, ArrowLeft, ArrowRight } from "@phosphor-icons/react";
+import { ArrowLeftIcon, ArrowRightIcon, StarIcon } from "@phosphor-icons/react";
 import { AnimatedGridPattern } from "@/components/animated-grid-pattern";
 
 export type Testimonial = {
@@ -36,7 +36,7 @@ function StarRating({ count }: { count: 1 | 2 | 3 | 4 | 5 }) {
   return (
     <div className="flex items-center gap-1" aria-label={`${count} out of 5 stars`}>
       {Array.from({ length: 5 }, (_, i) => (
-        <Star
+        <StarIcon
           key={i}
           weight={i < count ? "fill" : "regular"}
           className={`size-3.5 ${i < count ? "text-primary" : "text-muted-foreground/25"}`}
@@ -130,7 +130,7 @@ export function TestimonialsSection() {
   const slides = [...testimonials, testimonials[0]];
 
   return (
-    <section className="section-frame relative overflow-hidden border-b border-border py-20 lg:py-24">
+    <section className="section-frame relative overflow-hidden border-b border-border py-14 sm:py-16 lg:py-24">
       <AnimatedGridPattern
         numSquares={20}
         maxOpacity={0.04}
@@ -140,13 +140,13 @@ export function TestimonialsSection() {
         className="[mask-image:radial-gradient(ellipse_at_center,black_30%,transparent_75%)] opacity-50"
       />
 
-      <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
         {/* ── Header ── */}
         <div className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <p className="section-kicker">From the field</p>
-            <h2 className="mt-4 text-3xl leading-tight text-foreground sm:text-4xl">
+            <h2 className="mt-4 text-2xl leading-tight text-foreground sm:text-4xl">
               What participants say.
             </h2>
           </div>
@@ -158,14 +158,14 @@ export function TestimonialsSection() {
               aria-label="Previous testimonial"
               className="flex h-9 w-9 items-center justify-center border border-border text-muted-foreground transition-colors hover:border-primary/50 hover:text-primary"
             >
-              <ArrowLeft size={15} weight="bold" />
+              <ArrowLeftIcon size={15} weight="bold" />
             </button>
             <button
               onClick={next}
               aria-label="Next testimonial"
               className="flex h-9 w-9 items-center justify-center border border-border text-muted-foreground transition-colors hover:border-primary/50 hover:text-primary"
             >
-              <ArrowRight size={15} weight="bold" />
+              <ArrowRightIcon size={15} weight="bold" />
             </button>
           </div>
         </div>
@@ -191,11 +191,11 @@ export function TestimonialsSection() {
               <div
                 key={i}
                 style={{ width: `${100 / slides.length}%` }}
-                className="bg-card px-8 py-10 sm:px-12 sm:py-12"
+                className="bg-card px-5 py-8 sm:px-12 sm:py-12"
               >
                 <StarRating count={t.stars} />
 
-                <blockquote className="mt-6 text-base leading-[1.9] text-card-foreground sm:text-lg">
+                <blockquote className="mt-6 text-[0.98rem] text-card-foreground sm:text-lg">
                   &ldquo;{t.body}&rdquo;
                 </blockquote>
 
@@ -222,7 +222,7 @@ export function TestimonialsSection() {
               key={i}
               onClick={() => goTo(i)}
               aria-label={`Go to testimonial ${i + 1}`}
-              className={`h-1.5 rounded-full transition-all duration-300 ${
+              className={`h-1.5 transition-all duration-300 ${
                 i === dotIndex
                   ? "w-6 bg-primary"
                   : "w-1.5 bg-muted-foreground/30 hover:bg-muted-foreground/60"

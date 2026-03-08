@@ -10,7 +10,7 @@ const footerLinks = [
 
 export function Footer() {
   return (
-    <footer className="relative overflow-hidden border-t border-border py-10 lg:py-12">
+    <footer className="relative overflow-hidden border-t border-border py-8 sm:py-10 lg:py-12">
 
       {/* Animated grid — subtle, same as other sections */}
       <AnimatedGridPattern
@@ -24,8 +24,22 @@ export function Footer() {
 
       {/* Full-width dithered HASHVAULT background text — Bayer cross pattern */}
       <div
-        className="pointer-events-none select-none absolute inset-x-0 bottom-0 opacity-[0.18]"
-        style={{ height: "140%" }}
+        className="pointer-events-none select-none absolute inset-x-0 top-0 h-[34%] opacity-[0.18] sm:hidden"
+        aria-hidden="true"
+      >
+        <DitherText
+          text="HASHVAULT"
+          fitWidth
+          pixelScale={0.3}
+          fontScale={1.8}
+          colorRgb={[160, 100, 240]}
+          density={0.58}
+          gradientMode="flat"
+        />
+      </div>
+
+      <div
+        className="pointer-events-none select-none absolute inset-x-0 bottom-0 hidden h-[140%] opacity-[0.18] sm:block"
         aria-hidden="true"
       >
         <DitherText
@@ -39,11 +53,11 @@ export function Footer() {
         />
       </div>
 
-      <div className="relative mx-auto flex max-w-7xl flex-col gap-6 px-6 lg:flex-row lg:items-end lg:justify-between lg:px-8">
+      <div className="relative mx-auto flex max-w-7xl flex-col gap-6 px-4 sm:px-6 lg:flex-row lg:items-end lg:justify-between lg:px-8">
         <div>
           <p className="display-title text-2xl text-foreground">HashVault</p>
           <p className="mt-1 text-[0.68rem] uppercase tracking-[0.18em] text-muted-foreground/60">Systems LLP</p>
-          <p className="mt-3 max-w-md text-xs leading-6 text-muted-foreground">
+          <p className="mt-3 max-w-md text-xs text-muted-foreground">
             Practitioner-led cybersecurity training for engineering colleges and corporate teams.
             Based in Bangalore, Karnataka, India.
           </p>

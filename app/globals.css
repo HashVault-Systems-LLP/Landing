@@ -171,6 +171,7 @@
   body {
     @apply bg-background text-foreground;
     font-family: var(--font-sans), monospace;
+    overflow-x: clip;
     background-image:
       radial-gradient(ellipse 110% 55% at 50% -8%, color-mix(in oklch, var(--primary) 18%, transparent) 0%, transparent 100%),
       radial-gradient(circle, color-mix(in oklch, var(--border) 85%, transparent) 1px, transparent 1px);
@@ -215,6 +216,7 @@
 
 .page-shell {
   position: relative;
+  overflow-x: clip;
 }
 
 
@@ -226,6 +228,7 @@
   content: "";
   position: absolute;
   inset: 0 auto 0 1.5rem;
+  display: none;
   width: 1px;
   background: linear-gradient(
     180deg,
@@ -239,8 +242,8 @@
 
 .section-kicker {
   color: color-mix(in oklch, var(--muted-foreground) 75%, var(--primary) 25%);
-  font-size: 0.72rem;
-  letter-spacing: 0.26em;
+  font-size: clamp(0.66rem, 1.8vw, 0.72rem);
+  letter-spacing: clamp(0.18em, 0.7vw, 0.26em);
   text-transform: uppercase;
 }
 
@@ -305,9 +308,16 @@
     0 4px 24px -4px color-mix(in oklch, var(--background) 60%, transparent);
 }
 
-@media (max-width: 768px) {
+@media (min-width: 1025px) {
   .section-frame::before {
-    left: 1rem;
+    display: block;
+  }
+}
+
+@media (max-width: 640px) {
+  body {
+    background-size: 100% 100%, 22px 22px;
+    background-position: 0 0, 11px 11px;
   }
 }
 
