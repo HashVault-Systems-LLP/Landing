@@ -2,9 +2,10 @@ import { AnimatedGridPattern } from "@/components/animated-grid-pattern";
 import { DitherText } from "@/components/dither-text";
 
 const footerLinks = [
-  { label: "Workshops", href: "#workshops" },
-  { label: "Method", href: "#methodology" },
-  { label: "Contact", href: "#contact" },
+  { label: "Workshops", href: "/#workshops" },
+  { label: "Method", href: "/#methodology" },
+  { label: "Community", href: "/community" },
+  { label: "Contact", href: "/#contact" },
   { label: "Privacy", href: "/privacy" },
 ];
 
