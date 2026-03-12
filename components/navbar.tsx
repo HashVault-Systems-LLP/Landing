@@ -5,9 +5,10 @@ import { ListIcon, XIcon } from "@phosphor-icons/react";
 import { Button } from "@/components/ui/button";
 
 const navLinks = [
-  { label: "Workshops", href: "#workshops" },
-  { label: "Method", href: "#methodology" },
-  { label: "Contact", href: "#contact" },
+  { label: "Workshops", href: "/#workshops" },
+  { label: "Method", href: "/#methodology" },
+  { label: "Community", href: "/community" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export function Navbar() {
@@ -16,7 +17,7 @@ export function Navbar() {
   return (
     <nav className="fixed inset-x-0 top-0 z-50 border-b border-border/80 bg-background/88 backdrop-blur-md">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3.5 sm:px-6 sm:py-4 lg:px-8">
-        <a href="#" className="flex min-w-0 items-center gap-3 text-sm uppercase tracking-[0.22em] text-foreground">
+        <a href="/" className="flex min-w-0 items-center gap-3 text-sm uppercase tracking-[0.22em] text-foreground">
           <span className="inline-flex h-2.5 w-2.5 shrink-0 bg-primary" />
           <span className="display-title truncate text-base normal-case tracking-[-0.04em] sm:text-lg">
             HashVault Systems
@@ -39,7 +40,7 @@ export function Navbar() {
           <Button
             size="sm"
             nativeButton={false}
-            render={<a href="#contact" />}
+            render={<a href="/#contact" />}
             className="ml-2 border border-primary bg-primary px-4 text-[0.72rem] font-medium uppercase tracking-[0.18em] text-primary-foreground hover:bg-primary/90"
           >
             Book briefing
@@ -77,7 +78,7 @@ export function Navbar() {
             <Button
               size="sm"
               nativeButton={false}
-              render={<a href="#contact" />}
+              render={<a href="/#contact" />}
               className="mt-2 h-10 justify-center border border-primary bg-primary text-[0.75rem] uppercase tracking-[0.18em] text-primary-foreground"
               onClick={() => setMobileOpen(false)}
             >
