@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cd \"C:\\\\Users\\\\Adithyakarthik\\\\OneDrive\\\\Documents\\\\work\\\\HashVault Systems\\\\Website\\\\Landing\\\\hv-landing-page\" && bun add next-mdx-remote gray-matter && bun add -d @types/gray-matter 2>&1)",
+      "Bash(cd \"C:\\\\Users\\\\Adithyakarthik\\\\OneDrive\\\\Documents\\\\work\\\\HashVault Systems\\\\Website\\\\Landing\\\\hv-landing-page\" && bun run build 2>&1)",
+      "Bash(cd \"C:\\\\Users\\\\Adithyakarthik\\\\OneDrive\\\\Documents\\\\work\\\\HashVault Systems\\\\Website\\\\Landing\\\\hv-landing-page\" && rm -rf .next && bun run build 2>&1)",
+      "Bash(cd \"C:\\\\Users\\\\Adithyakarthik\\\\OneDrive\\\\Documents\\\\work\\\\HashVault Systems\\\\Website\\\\Landing\\\\hv-landing-page\" && bun run build 2>&1 | tail -20)"
+    ]
+  }
+}
